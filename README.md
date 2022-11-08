@@ -8,7 +8,9 @@ pip install pytube
 pip install yt-dlp
 pip install colorama
 ```
+## Note
 
+This program will automaticlly create a "Music" folder on your Desktop and save all files there
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
