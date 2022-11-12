@@ -8,9 +8,13 @@ pip install pytube
 pip install yt-dlp
 pip install colorama
 ```
+## Usage
+
+Mode 1 is for single video
+Mode 2 is for playlist
 ## Note
 
-This program will automaticlly create a "Music" folder on your Desktop and save all files there
+This program will automatically create a "Music" folder on your Desktop and save all files there
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
