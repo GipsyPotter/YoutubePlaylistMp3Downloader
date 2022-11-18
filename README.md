@@ -11,10 +11,13 @@ pip install colorama
 ## Usage
 
 Mode 1 is for single video
-Mode 2 is for playlist
+
+Mode 2 is for playlist(mp4)
+
+Mode 3 is for playlist(mp3)
 ## Note
 
-This program will automatically create a "Music" folder on your Desktop and save all files there
+This program will automatically create a "Music" or "Video" folder on your Desktop and save all files there
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
