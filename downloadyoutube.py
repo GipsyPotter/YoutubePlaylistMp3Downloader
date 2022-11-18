@@ -57,11 +57,10 @@ def mulvid4():
         try:
             video_url = video.watch_url
             video_info = yt_dlp.YoutubeDL().extract_info(
-                url=video_url, download=False
+                url=video_url, download=True
             )
             filename = f"{downloadDirectory}{video_info['title']}.mp4"
             options = {
-                'format': 'bestaudio/best',
                 'keepvideo': True,
                 'outtmpl': filename,
             }
@@ -79,6 +78,7 @@ def mulvid4():
 
 
 def singvid():
+    downloadDirectory = "C:\\Desktop\\Music\\"
     video_url = input("Your video URL: ")
     video_info = yt_dlp.YoutubeDL().extract_info(
         url=video_url, download=False
@@ -97,10 +97,10 @@ def singvid():
 
 
 print("YOUTUBE VIDEO/PLAYLIST DOWNLOADER (MP3)")
-choice = int(input("Single video - 1\nPlaylist - 2\nPlaylist but mp4 - 3\nEnter option: "))
+choice = int(input("Single video - 1\nPlaylist but mp4 - 2\nPlaylist - 3\nEnter option: "))
 if choice == 1:
     singvid()
-elif choice == 3:
+elif choice == 2:
     mulvid4()
 else:
     mulvid()
