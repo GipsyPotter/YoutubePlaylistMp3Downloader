@@ -57,7 +57,7 @@ def mulvid4():
         try:
             video_url = video.watch_url
             video_info = yt_dlp.YoutubeDL().extract_info(
-                url=video_url, download=True
+                url=video_url, download=False
             )
             filename = f"{downloadDirectory}{video_info['title']}.mp4"
             options = {
