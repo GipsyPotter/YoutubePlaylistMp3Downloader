@@ -3,7 +3,13 @@ import yt_dlp
 from colorama import Fore
 from colorama import Style
 
+import os
+from pynput import keyboard
+from pynput.keyboard import Key
 
+
+def clear():
+    os.system("cls")
 
 
 def mulvid():
@@ -96,11 +102,62 @@ def singvid():
     print("Download complete... {}".format(filename))
 
 
-print("YOUTUBE VIDEO/PLAYLIST DOWNLOADER (MP3)")
-choice = int(input("Single video - 1\nPlaylist but mp4 - 2\nPlaylist - 3\nEnter option: "))
-if choice == 1:
-    singvid()
-elif choice == 2:
-    mulvid4()
-else:
-    mulvid()
+def update_cur(math):
+    global cur
+    global maxi
+    if math == "+":
+        if cur < maxi - 1:
+            cur += 1
+        else:
+            cur = 0
+    elif math == "-":
+        if cur > 0:
+            cur -= 1
+        else:
+            cur = maxi - 1
+
+
+def chose(index):
+    global chosen
+    if index == 0:
+        mulvid()
+    elif index == 1:
+        mulvid4()
+    elif index == 2:
+        singvid()
+    chosen = True
+
+
+def on_key_release(key):
+    if key == Key.up:
+        update_cur("-")
+    elif key == Key.down:
+        update_cur("+")
+    elif key == Key.left or key == Key.right:
+        chose(cur)
+    return False
+
+
+def export_menu(opt: list, cur: int):
+    for i in range(len(opt)):
+        if i == cur:
+            print(f"{Fore.CYAN}>> {opt[i]}{Style.RESET_ALL}")
+        else:
+            print("  ", opt[i])
+
+
+if __name__ == '__main__':
+    opt = ["Playlist as MP3", "Playlist as MP4", "Single video as MP3"]  # Create a list of options
+    maxi = len(opt)  # Get the max index
+    cur = 0  # Set the cursor to 0
+    chosen = False  # Set the chosen to False
+    while chosen is False:
+        clear()
+        print("""
+YOUTUBE VIDEO/PLAYLIST DOWNLOADER
+Made by: ThePotterio
+        """)
+        export_menu(opt, cur)
+        print("Press up/down to navigate, left/right to select")
+        with keyboard.Listener(on_release=on_key_release) as listener:
+            listener.join()
