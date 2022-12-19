@@ -16,7 +16,7 @@ pip install colorama
 ```
 ## Usage
 
-Press up/down to navigate, left/right to select
+Press up/down to navigate, left/right to select function
 ## Note
 
 This program will automatically create a "Music" or "Video" folder on your Desktop and save all files there
